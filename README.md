@@ -23,3 +23,5 @@ Then you can run ``src/boosting_inference.py`` to ensemble the modality split pr
 ```
 CUDA_VISIBLE_DEVICES=0 python boosting_inference.py --model_path YOUR_MODEL_PATH --dataset DATASET_NAME --boosting True
 ```
+# Acknowledgments  
+We would like to thank the anonymous reviewers for their insightful comments and valuable suggestions.
