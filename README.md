@@ -6,7 +6,9 @@ For FB15K-237 and WN18RR, images and texts associated with entities can be found
 For triple data, the data could be preprocessed by ``src/process_datasets.py``. We extract visual and linguistic features using the pre-trained [CLIP](https://huggingface.co/) for both FB15K-237 and WN18RR. For YAGO15K, we follow previous methods, using [BERT]((https://huggingface.co/)) to extract linguistic embeddings. To be specific, this can be done by running ``src/text_encoder.py``,``src/img_encoder.py``, and ``src/text_encoder_YAGO15K.py``. After extracting features from fixed encoders, we save the linguistic and visual features of entities in a pickle file and save the file in ``data/DATASET_NAME/``.  
 ## How to run  
 We provide a script to train model on WN18RR:  
-```CUDA_VISIBLE_DEVICES=3 python learn.py --model ComplExMDR --ckpt_dir ./ckpt --dataset WN18RR --early_stopping 10 --fusion_dscp True --fusion_img True --modality_split True --img_info data/WN18RR/img_feature_clip.pickle  --dscp_info data/WN18RR/text_feature_clip.pickle --ep 1 --rank 2000```.  
+```
+CUDA_VISIBLE_DEVICES=3 python learn.py --model ComplExMDR --ckpt_dir ./ckpt --dataset WN18RR --early_stopping 10 --fusion_dscp True --fusion_img True --modality_split True --img_info data/WN18RR/img_feature_clip.pickle  --dscp_info data/WN18RR/text_feature_clip.pickle --ep 1 --rank 2000
+```  
 Note that the displayed metrics during training are more like an upper bound of modality split KGs performance, which is not the final prediction performance.  
 Then you can run ``src/boosting_inference.py`` to ensemble the modality split predictions to get final predictions and performance.  
 ``python boosting_inference.py --model_path YOUR_MODEL_PATH --dataset DATASET_NAME --boosting True``
