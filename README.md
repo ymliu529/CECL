@@ -6,7 +6,7 @@ For FB15K-237 and WN18RR, images associated with entities can be found from [MKG
 For triple data, the data could be preprocessed by ``src/process_datasets.py``. We extract visual and linguistic features using the pre-trained [CLIP](https://huggingface.co/) for both FB15K-237 and WN18RR. For YAGO15K, we follow previous methods, using [BERT](https://huggingface.co/) to extract linguistic embeddings. To be specific, this can be done by running ``src/text_encoder.py`` and ``src/img_encoder.py``.  
 After extracting features from fixed encoders, we save the linguistic and visual features of entities in a pickle file and save the file in ``data/DATASET_NAME/``.  
 ## How to Run  
-We have provided training scripts to train our model: 
+We have provided training scripts to train our model:  
 WN18RR  
 ```
 cd src    
